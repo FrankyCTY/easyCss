@@ -1,17 +1,20 @@
 {
-  "name": "@frankycty/node-package-base",
-  "version": "1.0.0",
-  "description": "node package template",
-  "main": "./dist/index.js",
-  "repository": "git@github.com:FrankyCTY/node-package-base.git",
+  "name": "@frankycty/easycss-cli",
+  "version": "0.4.1",
+  "description": "cli to generate easy css utility styles and builder, inspired by headwind",
+  "repository": "git@github.com:FrankyCTY/easyCss.git",
   "author": "frankycty <frankychantakyu@yahoo.com.hk>",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "bin": {
+    "easycss": "lib/index.js"
+  },
   "scripts": {
     "lint": "eslint --fix src/",
     "test": "cross-env NODE_PATH=./src jest --config .jestrc.json",
-    "start": "node ./src/index.js",
+    "start": "--exec babel-node ./src/index.js",
+    "clean": "rimraf -rf lib",
     "prebuild": "yarn clean",
-    "build": "babel src -d dist"
+    "build": "babel src -d lib --copy-files"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
@@ -27,9 +30,13 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
+    "@caporal/core": "^2.0.2",
     "@frankycty/node-logger": "^1.0.3",
     "@frankycty/node.utils": "^1.0.7",
     "@frankycty/rm-extra": "^1.1.2",
-    "config": "^3.3.6"
+    "cli-spinners": "^2.6.0",
+    "config": "^3.3.6",
+    "fs-extra": "^10.0.0",
+    "ora": "^5.4.1"
   }
 }
