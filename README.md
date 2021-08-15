@@ -68,7 +68,7 @@ Make use of the easyCss, which will integrate emotion and utilityStyles
 
 ```javascript
 import { ez } from './lib/easyCss'
-import { styled } from './lib/styled'
+import styled from './lib/styled'
 
 const Container = styled.div(
   ez('w-16 h-16 bg-pink'),
